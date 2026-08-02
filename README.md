@@ -1,16 +1,15 @@
-<img src="./src/icon.svg" width="100" /><br>
-# Sample Addon
-<i>Description</i> <br>
-### Version 0.0.0.0
+<img src="./examples/cover.png" width="150" /><br>
+# Better Anchor
+<i>Anchor each edge of an object to the viewport or to its parent, with pixel or percentage offsets</i> <br>
+### Version 2.0.0.0
 
-[<img src="https://placehold.co/200x50/4493f8/FFF?text=Download&font=montserrat" width="200"/>](https://github.com/ConstructFund/construct-addon-wizard-scaffold/releases/download/sample_addon-0.0.0.0.c3addon/sample_addon-0.0.0.0.c3addon)
+[<img src="https://placehold.co/200x50/4493f8/FFF?text=Download&font=montserrat" width="200"/>](https://github.com/skymen/better_anchor_sdkV2/releases/download/skymen_parent_anchor-2.0.0.0.c3addon/skymen_parent_anchor-2.0.0.0.c3addon)
 <br>
-<sub> [See all releases](https://github.com/ConstructFund/construct-addon-wizard-scaffold/releases) </sub> <br>
+<sub> [See all releases](https://github.com/skymen/better_anchor_sdkV2/releases) </sub> <br>
 
-#### What's New in 0.0.0.0
-**Added:**
-Initial release.
-
+#### What's New in 2.0.0.0
+- **Added:** SDK v2 port.
+- **Fixed:** Anchoring to the viewport now works on the first layout. If the window was not the same size as the project viewport, the object used to stay where the editor put it and only start moving after a later resize. The official Anchor behavior has a similar problem.
 
 <sub>[View full changelog](#changelog)</sub>
 
@@ -42,48 +41,63 @@ npm run dev
 ```
 
 ## Examples Files
+| Description | Download |
+| --- | --- |
 
 ---
 ## Properties
 | Property Name | Description | Type |
 | --- | --- | --- |
+| Resize Mode | How the object fills the space between its anchored edges | combo |
+| Left Edge | Which edge of the parent the left edge anchors to | combo |
+| Left Constraint | How the left offset is measured | combo |
+| Top Edge | Which edge of the parent the top edge anchors to | combo |
+| Top Constraint | How the top offset is measured | combo |
+| Right Edge | Which edge of the parent the right edge anchors to | combo |
+| Right Constraint | How the right offset is measured | combo |
+| Bottom Edge | Which edge of the parent the bottom edge anchors to | combo |
+| Bottom Constraint | How the bottom offset is measured | combo |
+| Anchor To | Anchor to the object's hierarchy parent, or to the viewport | combo |
+| Enable | Whether the behavior is active | check |
 
 
 ---
 ## Actions
 | Action | Description | Params
 | --- | --- | --- |
-| Sample Action Combo | This is a sample action | Param1             *(combo)* <br> |
-| Sample Action | This is a sample action | Param1             *(string)* <br> |
-| Sample Action Async | This is a sample action |  |
-| Sample Action | This is a sample action | Param1             *(string)* <br> |
+| Set Anchor To | Anchor to the object's hierarchy parent, or to the viewport | Anchor To             *(combo)* <br> |
+| Set Bottom Edge | Set which edge of the parent the bottom edge anchors to | Edge             *(combo)* <br> |
+| Set Bottom Offset | Set the bottom offset and how it is measured | Offset             *(number)* <br>Constraint             *(combo)* <br> |
+| Set Enabled | Enable or disable the behavior | Enabled             *(boolean)* <br> |
+| Set Left Edge | Set which edge of the parent the left edge anchors to | Edge             *(combo)* <br> |
+| Set Left Offset | Set the left offset and how it is measured | Offset             *(number)* <br>Constraint             *(combo)* <br> |
+| Set Resize Mode | Set how the object fills the space between its anchored edges | Mode             *(combo)* <br> |
+| Set Right Edge | Set which edge of the parent the right edge anchors to | Edge             *(combo)* <br> |
+| Set Right Offset | Set the right offset and how it is measured | Offset             *(number)* <br>Constraint             *(combo)* <br> |
+| Set Top Edge | Set which edge of the parent the top edge anchors to | Edge             *(combo)* <br> |
+| Set Top Offset | Set the top offset and how it is measured | Offset             *(number)* <br>Constraint             *(combo)* <br> |
 
 
 ---
 ## Conditions
 | Condition | Description | Params
 | --- | --- | --- |
-| Sample Condition | This is a sample condition | Param1 *(combo)* <br> |
-| Sample Condition | This is a sample condition | Param1 *(string)* <br> |
-| Sample Trigger | This is a sample trigger |  |
-| Sample Condition | This is a sample condition |  |
+| Is Enabled | True while the behavior is active |  |
 
 
 ---
 ## Expressions
 | Expression | Description | Return Type | Params
 | --- | --- | --- | --- |
-| Expression2 | Sample Expression | string |  | 
-| Expression | Sample Expression | number |  | 
-| SampleExpression | This is a sample expression | string |  | 
+| Bottom | The current bottom offset | number |  | 
+| Left | The current left offset | number |  | 
+| Right | The current right offset | number |  | 
+| Top | The current top offset | number |  | 
 
 
 ---
 ## Changelog
 
-### Version 0.0.0.0
-
-**Added:**
-Initial release.
-
----
+**2.0.0.0**
+- **Added:** SDK v2 port.
+- **Fixed:** Anchoring to the viewport now works on the first layout. If the window was not the same size as the project viewport, the object used to stay where the editor put it and only start moving after a later resize. The official Anchor behavior has a similar problem.
