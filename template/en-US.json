@@ -1,0 +1,337 @@
+{
+  "languageTag": "en-US",
+  "fileDescription": "Strings for skymen_parent_anchor.",
+  "text": {
+    "behaviors": {
+      "skymen_parent_anchor": {
+        "name": "Better Anchor",
+        "description": "Anchor each edge of an object to the viewport or to its parent, with pixel or percentage offsets",
+        "help-url": "https://www.construct.net",
+        "aceCategories": {
+          "general": "General"
+        },
+        "properties": {
+          "resize_mode": {
+            "name": "Resize Mode",
+            "desc": "How the object fills the space between its anchored edges",
+            "items": {
+              "stretch": "Stretch",
+              "contain": "Contain",
+              "cover": "Cover"
+            }
+          },
+          "anchor_left": {
+            "name": "Left Edge",
+            "desc": "Which edge of the parent the left edge anchors to",
+            "items": {
+              "left": "Left",
+              "center": "Center",
+              "right": "Right",
+              "none": "None"
+            }
+          },
+          "constraint_left": {
+            "name": "Left Constraint",
+            "desc": "How the left offset is measured",
+            "items": {
+              "absolute": "Absolute",
+              "percent": "Percent",
+              "none": "None"
+            }
+          },
+          "anchor_top": {
+            "name": "Top Edge",
+            "desc": "Which edge of the parent the top edge anchors to",
+            "items": {
+              "top": "Top",
+              "center": "Center",
+              "bottom": "Bottom",
+              "none": "None"
+            }
+          },
+          "constraint_top": {
+            "name": "Top Constraint",
+            "desc": "How the top offset is measured",
+            "items": {
+              "absolute": "Absolute",
+              "percent": "Percent",
+              "none": "None"
+            }
+          },
+          "anchor_right": {
+            "name": "Right Edge",
+            "desc": "Which edge of the parent the right edge anchors to",
+            "items": {
+              "left": "Left",
+              "center": "Center",
+              "right": "Right",
+              "none": "None"
+            }
+          },
+          "constraint_right": {
+            "name": "Right Constraint",
+            "desc": "How the right offset is measured",
+            "items": {
+              "absolute": "Absolute",
+              "percent": "Percent",
+              "none": "None"
+            }
+          },
+          "anchor_bottom": {
+            "name": "Bottom Edge",
+            "desc": "Which edge of the parent the bottom edge anchors to",
+            "items": {
+              "top": "Top",
+              "center": "Center",
+              "bottom": "Bottom",
+              "none": "None"
+            }
+          },
+          "constraint_bottom": {
+            "name": "Bottom Constraint",
+            "desc": "How the bottom offset is measured",
+            "items": {
+              "absolute": "Absolute",
+              "percent": "Percent",
+              "none": "None"
+            }
+          },
+          "anchor_to": {
+            "name": "Anchor To",
+            "desc": "Anchor to the object's hierarchy parent, or to the viewport",
+            "items": {
+              "parent": "Parent",
+              "screen": "Viewport"
+            }
+          },
+          "enable": {
+            "name": "Enable",
+            "desc": "Whether the behavior is active"
+          }
+        },
+        "actions": {
+          "SetAnchorTo": {
+            "list-name": "Set Anchor To",
+            "display-text": "{my}: Set Anchor To [i]{0}[/i]",
+            "description": "Anchor to the object's hierarchy parent, or to the viewport",
+            "params": {
+              "anchor": {
+                "name": "Anchor To",
+                "desc": "What to anchor to",
+                "items": {
+                  "parent": "Parent",
+                  "screen": "Viewport"
+                }
+              }
+            }
+          },
+          "SetBottomEdge": {
+            "list-name": "Set Bottom Edge",
+            "display-text": "{my}: Set Bottom Edge [i]{0}[/i]",
+            "description": "Set which edge of the parent the bottom edge anchors to",
+            "params": {
+              "edge": {
+                "name": "Edge",
+                "desc": "The parent edge to anchor to",
+                "items": {
+                  "top": "Top",
+                  "center": "Center",
+                  "bottom": "Bottom",
+                  "none": "None"
+                }
+              }
+            }
+          },
+          "SetBottomOffset": {
+            "list-name": "Set Bottom Offset",
+            "display-text": "{my}: Set Bottom Offset [i]{0}[/i] (Constraint: {1})",
+            "description": "Set the bottom offset and how it is measured",
+            "params": {
+              "offset": {
+                "name": "Offset",
+                "desc": "The offset from the anchor edge"
+              },
+              "constraint": {
+                "name": "Constraint",
+                "desc": "How the offset is measured",
+                "items": {
+                  "absolute": "Absolute",
+                  "percent": "Percent",
+                  "none": "None"
+                }
+              }
+            }
+          },
+          "SetEnabled": {
+            "list-name": "Set Enabled",
+            "display-text": "{my}: Set Enabled [i]{0}[/i]",
+            "description": "Enable or disable the behavior",
+            "params": {
+              "enabled": {
+                "name": "Enabled",
+                "desc": "Whether the behavior is active"
+              }
+            }
+          },
+          "SetLeftEdge": {
+            "list-name": "Set Left Edge",
+            "display-text": "{my}: Set Left Edge [i]{0}[/i]",
+            "description": "Set which edge of the parent the left edge anchors to",
+            "params": {
+              "edge": {
+                "name": "Edge",
+                "desc": "The parent edge to anchor to",
+                "items": {
+                  "left": "Left",
+                  "center": "Center",
+                  "right": "Right",
+                  "none": "None"
+                }
+              }
+            }
+          },
+          "SetLeftOffset": {
+            "list-name": "Set Left Offset",
+            "display-text": "{my}: Set Left Offset [i]{0}[/i] (Constraint: {1})",
+            "description": "Set the left offset and how it is measured",
+            "params": {
+              "offset": {
+                "name": "Offset",
+                "desc": "The offset from the anchor edge"
+              },
+              "constraint": {
+                "name": "Constraint",
+                "desc": "How the offset is measured",
+                "items": {
+                  "absolute": "Absolute",
+                  "percent": "Percent",
+                  "none": "None"
+                }
+              }
+            }
+          },
+          "SetResizeMode": {
+            "list-name": "Set Resize Mode",
+            "display-text": "{my}: Set Resize Mode [i]{0}[/i]",
+            "description": "Set how the object fills the space between its anchored edges",
+            "params": {
+              "mode": {
+                "name": "Mode",
+                "desc": "The resize mode",
+                "items": {
+                  "stretch": "Stretch",
+                  "contain": "Contain",
+                  "cover": "Cover"
+                }
+              }
+            }
+          },
+          "SetRightEdge": {
+            "list-name": "Set Right Edge",
+            "display-text": "{my}: Set Right Edge [i]{0}[/i]",
+            "description": "Set which edge of the parent the right edge anchors to",
+            "params": {
+              "edge": {
+                "name": "Edge",
+                "desc": "The parent edge to anchor to",
+                "items": {
+                  "left": "Left",
+                  "center": "Center",
+                  "right": "Right",
+                  "none": "None"
+                }
+              }
+            }
+          },
+          "SetRightOffset": {
+            "list-name": "Set Right Offset",
+            "display-text": "{my}: Set Right Offset [i]{0}[/i] (Constraint: {1})",
+            "description": "Set the right offset and how it is measured",
+            "params": {
+              "offset": {
+                "name": "Offset",
+                "desc": "The offset from the anchor edge"
+              },
+              "constraint": {
+                "name": "Constraint",
+                "desc": "How the offset is measured",
+                "items": {
+                  "absolute": "Absolute",
+                  "percent": "Percent",
+                  "none": "None"
+                }
+              }
+            }
+          },
+          "SetTopEdge": {
+            "list-name": "Set Top Edge",
+            "display-text": "{my}: Set Top Edge [i]{0}[/i]",
+            "description": "Set which edge of the parent the top edge anchors to",
+            "params": {
+              "edge": {
+                "name": "Edge",
+                "desc": "The parent edge to anchor to",
+                "items": {
+                  "top": "Top",
+                  "center": "Center",
+                  "bottom": "Bottom",
+                  "none": "None"
+                }
+              }
+            }
+          },
+          "SetTopOffset": {
+            "list-name": "Set Top Offset",
+            "display-text": "{my}: Set Top Offset [i]{0}[/i] (Constraint: {1})",
+            "description": "Set the top offset and how it is measured",
+            "params": {
+              "offset": {
+                "name": "Offset",
+                "desc": "The offset from the anchor edge"
+              },
+              "constraint": {
+                "name": "Constraint",
+                "desc": "How the offset is measured",
+                "items": {
+                  "absolute": "Absolute",
+                  "percent": "Percent",
+                  "none": "None"
+                }
+              }
+            }
+          }
+        },
+        "conditions": {
+          "IsEnabled": {
+            "list-name": "Is Enabled",
+            "display-text": "{my}: Is enabled",
+            "description": "True while the behavior is active",
+            "params": {}
+          }
+        },
+        "expressions": {
+          "Bottom": {
+            "translated-name": "Bottom",
+            "description": "The current bottom offset",
+            "params": {}
+          },
+          "Left": {
+            "translated-name": "Left",
+            "description": "The current left offset",
+            "params": {}
+          },
+          "Right": {
+            "translated-name": "Right",
+            "description": "The current right offset",
+            "params": {}
+          },
+          "Top": {
+            "translated-name": "Top",
+            "description": "The current top offset",
+            "params": {}
+          }
+        }
+      }
+    }
+  }
+}

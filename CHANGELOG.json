@@ -1,0 +1,7 @@
+{
+  "2.0.0.0": {
+    "added": "SDK v2 port.",
+    "changed": "",
+    "fixed": "Anchoring to the viewport now works on the first layout. If the window was not the same size as the project viewport, the object used to stay where the editor put it and only start moving after a later resize. The official Anchor behavior has a similar problem."
+  }
+}
