@@ -26,7 +26,7 @@ export const terserValidation = "error";
 export const domTickValidation = "error";
 
 export const publishConfig = {
-  addonUrl: "", // e.g., "https://www.construct.net/en/make-games/addons/111/my-addon"
+  addonUrl: "https://www.construct.net/en/make-games/addons/1186/better-anchor", // e.g., "https://www.construct.net/en/make-games/addons/111/my-addon"
   itchioPage: "", // Format: "username/page-id" (taken from https://username.itch.io/page-id)
   autoGenReadme: true,
 };
