@@ -1,4 +1,9 @@
 {
+  "2.0.1.0": {
+    "added": "",
+    "changed": "",
+    "fixed": "Contain and cover no longer stretch.\nAn object whose parent was resized at the start of the layout used to take that stretched size as its own, and then kept that shape instead of the one it was given in the editor.\nAn object with an edge set to None no longer flips inside out for a frame when the layout starts.\n"
+  },
   "2.0.0.0": {
     "added": "SDK v2 port.",
     "changed": "",

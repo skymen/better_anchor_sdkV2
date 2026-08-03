@@ -1,15 +1,16 @@
 <img src="./examples/cover.png" width="150" /><br>
 # Better Anchor
 <i>Anchor each edge of an object to the viewport or to its parent, with pixel or percentage offsets</i> <br>
-### Version 2.0.0.0
+### Version 2.0.1.0
 
-[<img src="https://placehold.co/200x50/4493f8/FFF?text=Download&font=montserrat" width="200"/>](https://github.com/skymen/better_anchor_sdkV2/releases/download/skymen_parent_anchor-2.0.0.0.c3addon/skymen_parent_anchor-2.0.0.0.c3addon)
+[<img src="https://placehold.co/200x50/4493f8/FFF?text=Download&font=montserrat" width="200"/>](https://github.com/skymen/better_anchor_sdkV2/releases/download/skymen_parent_anchor-2.0.1.0.c3addon/skymen_parent_anchor-2.0.1.0.c3addon)
 <br>
 <sub> [See all releases](https://github.com/skymen/better_anchor_sdkV2/releases) </sub> <br>
 
-#### What's New in 2.0.0.0
-- **Added:** SDK v2 port.
-- **Fixed:** Anchoring to the viewport now works on the first layout. If the window was not the same size as the project viewport, the object used to stay where the editor put it and only start moving after a later resize. The official Anchor behavior has a similar problem.
+#### What's New in 2.0.1.0
+- **Fixed:** Contain and cover no longer stretch.
+- **Fixed:** An object whose parent was resized at the start of the layout used to take that stretched size as its own, and then kept that shape instead of the one it was given in the editor.
+- **Fixed:** An object with an edge set to None no longer flips inside out for a frame when the layout starts.
 
 <sub>[View full changelog](#changelog)</sub>
 
@@ -97,6 +98,11 @@ npm run dev
 
 ---
 ## Changelog
+
+**2.0.1.0**
+- **Fixed:** Contain and cover no longer stretch.
+- **Fixed:** An object whose parent was resized at the start of the layout used to take that stretched size as its own, and then kept that shape instead of the one it was given in the editor.
+- **Fixed:** An object with an edge set to None no longer flips inside out for a frame when the layout starts.
 
 **2.0.0.0**
 - **Added:** SDK v2 port.

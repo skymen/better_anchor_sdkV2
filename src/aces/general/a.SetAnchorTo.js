@@ -19,7 +19,5 @@ export const expose = true;
 export default function (anchor) {
   if (this._anchorParent === anchor) return;
   this._anchorParent = anchor;
-  // The offsets were measured against the old reference, so they mean nothing
-  // against the new one.
   this._needRemeasure = true;
 }

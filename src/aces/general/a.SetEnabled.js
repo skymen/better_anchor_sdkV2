@@ -18,7 +18,6 @@ export const expose = true;
 export default function (enabled) {
   this._enabled = !!enabled;
   if (this._enabled) {
-    // Re-measure rather than reuse offsets captured before it was turned off.
     this._needRemeasure = true;
     this._setTicking(true);
     this._setTicking2(true);

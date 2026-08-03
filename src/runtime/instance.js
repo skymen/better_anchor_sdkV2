@@ -53,17 +53,12 @@ export default function (parentClass) {
         this._enabled = properties[10];
       }
 
-      // Instances placed in the layout are built before this fires, so this is
-      // where their editor coordinates get measured. An instance created later
-      // by an action never gets here first, and falls through to the live
-      // measurement in _updatePosition, which is what its coordinates mean.
       this._onLayoutStart = () => {
         if (this._needFirstMeasure) {
           this._setXYOffsets(true);
           this._needFirstMeasure = false;
           this._needRemeasure = false;
         }
-        this._updatePosition();
       };
       this.runtime.addEventListener("afteranylayoutstart", this._onLayoutStart);
 
@@ -73,10 +68,17 @@ export default function (parentClass) {
       }
     }
 
+    _postCreate() {
+      super._postCreate();
+      const bbox = this.instance.getBoundingBox();
+      this._minWidth = bbox.width;
+      this._minHeight = bbox.height;
+    }
+
     _release() {
       this.runtime.removeEventListener(
         "afteranylayoutstart",
-        this._onLayoutStart
+        this._onLayoutStart,
       );
       super._release();
     }
@@ -97,21 +99,13 @@ export default function (parentClass) {
       return parent.getBoundingBox();
     }
 
-    // The rect the object was laid out against in the editor: the project's
-    // viewport size, in layer coordinates, centred where the live viewport is.
-    //
-    // Offsets have to be captured against this and not against the live
-    // viewport. Construct sizes the canvas in CreateCanvas, before the first
-    // layout builds its instances, so by the time this behavior is constructed
-    // the viewport already reflects the real window. Capturing against it makes
-    // every offset cancel out and the object just keeps its editor coordinates,
-    // so anchoring does nothing until something resizes the window later.
     _getLayoutBBox() {
       const live = this._getParentBBox();
       if (!live || !this._isParentViewport()) return live;
 
       const layer = this.instance.layer;
-      const scale = (layer.scale * layer.layout.scale - 1) * layer.scaleRate + 1;
+      const scale =
+        (layer.scale * layer.layout.scale - 1) * layer.scaleRate + 1;
       const width = this.runtime.viewportWidth / scale;
       const height = this.runtime.viewportHeight / scale;
       const midX = (live.left + live.right) / 2;
@@ -150,7 +144,10 @@ export default function (parentClass) {
     _getParentAnchorValue(anchor, parentBbox, isHorizontal) {
       const start = isHorizontal ? parentBbox.left : parentBbox.top;
       const end = isHorizontal ? parentBbox.right : parentBbox.bottom;
-      return { val: [start, (start + end) / 2, end, 0][anchor], size: end - start };
+      return {
+        val: [start, (start + end) / 2, end, 0][anchor],
+        size: end - start,
+      };
     }
 
     _setXYOffsets(fromLayout) {
@@ -166,7 +163,7 @@ export default function (parentClass) {
         bbox.left,
         l.val,
         l.size,
-        this._leftMode
+        this._leftMode,
       );
 
       const t = this._getParentAnchorValue(this._anchorTop, parentBbox, false);
@@ -174,7 +171,7 @@ export default function (parentClass) {
         bbox.top,
         t.val,
         t.size,
-        this._topMode
+        this._topMode,
       );
 
       const r = this._getParentAnchorValue(this._anchorRight, parentBbox, true);
@@ -182,23 +179,20 @@ export default function (parentClass) {
         bbox.right,
         r.val,
         r.size,
-        this._rightMode
+        this._rightMode,
       );
 
       const b = this._getParentAnchorValue(
         this._anchorBottom,
         parentBbox,
-        false
+        false,
       );
       this._bottom = this._calculateAnchorValue(
         bbox.bottom,
         b.val,
         b.size,
-        this._bottomMode
+        this._bottomMode,
       );
-
-      this._minWidth = bbox.width;
-      this._minHeight = bbox.height;
     }
 
     _updatePosition() {
@@ -216,12 +210,16 @@ export default function (parentClass) {
 
       let leftEdge;
       if (this._anchorLeft !== ANCHOR_NONE) {
-        const a = this._getParentAnchorValue(this._anchorLeft, parentBbox, true);
+        const a = this._getParentAnchorValue(
+          this._anchorLeft,
+          parentBbox,
+          true,
+        );
         leftEdge = this._calculateChildPosition(
           this._left,
           this._leftMode,
           a.val,
-          a.size
+          a.size,
         );
       } else {
         leftEdge = bbox.left;
@@ -229,12 +227,16 @@ export default function (parentClass) {
 
       let topEdge;
       if (this._anchorTop !== ANCHOR_NONE) {
-        const a = this._getParentAnchorValue(this._anchorTop, parentBbox, false);
+        const a = this._getParentAnchorValue(
+          this._anchorTop,
+          parentBbox,
+          false,
+        );
         topEdge = this._calculateChildPosition(
           this._top,
           this._topMode,
           a.val,
-          a.size
+          a.size,
         );
       } else {
         topEdge = bbox.top;
@@ -245,16 +247,16 @@ export default function (parentClass) {
         const a = this._getParentAnchorValue(
           this._anchorRight,
           parentBbox,
-          true
+          true,
         );
         rightEdge = this._calculateChildPosition(
           this._right,
           this._rightMode,
           a.val,
-          a.size
+          a.size,
         );
       } else {
-        rightEdge = bbox.left + this._minWidth;
+        rightEdge = leftEdge + this._minWidth;
       }
 
       let bottomEdge;
@@ -262,16 +264,16 @@ export default function (parentClass) {
         const a = this._getParentAnchorValue(
           this._anchorBottom,
           parentBbox,
-          false
+          false,
         );
         bottomEdge = this._calculateChildPosition(
           this._bottom,
           this._bottomMode,
           a.val,
-          a.size
+          a.size,
         );
       } else {
-        bottomEdge = bbox.top + this._minHeight;
+        bottomEdge = topEdge + this._minHeight;
       }
 
       let newWidth = rightEdge - leftEdge;
@@ -280,7 +282,7 @@ export default function (parentClass) {
       if (this._resizeMode === RESIZE_CONTAIN) {
         const ratio = Math.max(
           this._minWidth / newWidth,
-          this._minHeight / newHeight
+          this._minHeight / newHeight,
         );
         leftEdge += (newWidth - this._minWidth / ratio) / 2;
         topEdge += (newHeight - this._minHeight / ratio) / 2;
@@ -289,7 +291,7 @@ export default function (parentClass) {
       } else if (this._resizeMode === RESIZE_COVER) {
         const ratio = Math.min(
           this._minWidth / newWidth,
-          this._minHeight / newHeight
+          this._minHeight / newHeight,
         );
         leftEdge += (newWidth - this._minWidth / ratio) / 2;
         topEdge += (newHeight - this._minHeight / ratio) / 2;
@@ -300,7 +302,7 @@ export default function (parentClass) {
       inst.setSize(newWidth, newHeight);
       inst.setPosition(
         leftEdge + newWidth * inst.originX,
-        topEdge + newHeight * inst.originY
+        topEdge + newHeight * inst.originY,
       );
     }
 
