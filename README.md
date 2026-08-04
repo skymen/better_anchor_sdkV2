@@ -17,6 +17,8 @@
 ---
 <b><u>Author:</u></b> skymen <br>
 <b>[Construct Addon Page](https://www.construct.net/en/make-games/addons/1186/better-anchor)</b>  <br>
+<b>[Addon Website](https://www.construct.net/en/make-games/addons/1186/better-anchor)</b>  <br>
+<b>[Documentation](https://www.construct.net/en/make-games/addons/1186/better-anchor/documentation)</b>  <br>
 <sub>Made using [CAW](https://marketplace.visualstudio.com/items?itemName=skymen.caw) </sub><br>
 
 ## Table of Contents

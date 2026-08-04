@@ -12,8 +12,8 @@ export const name = "Better Anchor";
 export const version = _version;
 export const minConstructVersion = undefined;
 export const author = "skymen";
-export const website = "https://www.construct.net";
-export const documentation = "https://www.construct.net";
+export const website = "https://www.construct.net/en/make-games/addons/1186/better-anchor";
+export const documentation = "https://www.construct.net/en/make-games/addons/1186/better-anchor/documentation";
 export const description =
   "Anchor each edge of an object to the viewport or to its parent, with pixel or percentage offsets";
 export const category = ADDON_CATEGORY.GENERAL;

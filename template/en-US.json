@@ -6,7 +6,7 @@
       "skymen_parent_anchor": {
         "name": "Better Anchor",
         "description": "Anchor each edge of an object to the viewport or to its parent, with pixel or percentage offsets",
-        "help-url": "https://www.construct.net",
+        "help-url": "https://www.construct.net/en/make-games/addons/1186/better-anchor/documentation",
         "aceCategories": {
           "general": "General"
         },
